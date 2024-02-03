@@ -24,6 +24,11 @@ You'll find a sample Excel file named `sample_input.xlsx` in the `/data` directo
 - Dependencies must be clearly listed in a `requirements.txt` or `Pipfile` for Python-based solutions, or an equivalent for other languages.
 - If your approach benefits from containerization, please include a `Dockerfile`.
 
+## Time Allocation and Flexibility
+
+
+There is no strict time limit for this challenge; you can take as much time as you need. This flexibility allows individuals unfamiliar with the tech stack to dedicate time to learning, or for those who wish, to elevate the challenge to the next level. As a baseline, we expect someone proficient in the stack to complete this challenge in approximately 3-5 hours. This estimate is provided to help you set your own expectations regarding the amount of time you may need to allocate to complete it.
+
 ## Submission Guidelines
 
 - Start by forking this repository and clone it to your local machine.
