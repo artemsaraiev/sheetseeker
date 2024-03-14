@@ -31,10 +31,7 @@ There is no strict time limit for this challenge; you can take as much time as y
 
 ## Submission Guidelines
 
-- Start by forking this repository and clone it to your local machine.
-- Develop your solution in the `/src` directory, ensuring your code is well-commented and adheres to best practices.
-- Upon completion, submit a pull request to the original repository. Your PR description should outline your methodology and any specific instructions required to run your code.
-- Make sure your submission is thorough and well-documented, emphasizing how it meets the challenge objectives.
+- Zip File: Zip up the code directory and send it to us. Leaving the .git directory is preferred so we can see the history of how you implemented your solution. To automatically clean files that are not in git, you can use git clean -fdx (with appropriate caution as this deletes files). Please include your example output xlsx file in the zip.
 
 ## Evaluation Criteria
 
