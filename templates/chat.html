@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chat Window</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      #chat-container {
+        width: 60%;
+        height: 80vh;
+        max-width: none;
+      }
+
+      #chat-area {
+        width: 100%;
+        height: calc(100% - 60px); /* Adjust height considering input area */
+        background-color: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        overflow-y: scroll; /* Ensures content is scrollable */
+        border-radius: 10px 10px 0 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+      .message {
+        margin: 10px;
+        padding: 8px 16px;
+        background-color: #e0f2f1;
+        border-radius: 20px;
+        max-width: 80%;
+        word-wrap: break-word;
+      }
+
+      .user {
+        align-self: flex-end;
+        background-color: #bbdefb;
+      }
+
+      .assistant {
+        align-self: flex-start;
+        background-color: #ffcdd2;
+      }
+
+      #input-area {
+        width: 96%;
+        padding: 10px 20px;
+        justify-self: center;
+        background-color: #fff;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        border-radius: 0 0 10px 10px;
+      }
+
+      input[type="text"] {
+        flex: 1;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #ddd;
+        border-radius: 20px;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+
+      input[type="text"]:focus {
+        border-color: #26a69a;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 12px 20px;
+        margin-left: 10px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="chat-container">
+      <p>File: {{ namespace }}</p>
+
+      <div id="chat-area">
+        {% for message in chat_history %}
+        <div
+          class="message {{ 'user' if message.role == 'user' else 'assistant' }}"
+        >
+          {{ message.content }}
+        </div>
+        {% endfor %}
+        <form id="input-area" action="/send_message" method="post">
+          <input
+            type="text"
+            name="message"
+            placeholder="Type a message..."
+            autocomplete="off"
+          />
+          <input type="submit" value="Send" />
+          <input
+            type="submit"
+            formaction="/clear_history"
+            value="Clear History"
+          />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

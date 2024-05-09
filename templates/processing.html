@@ -1,0 +1,118 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Your File</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            text-align: center;
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3;
+            /* Light grey */
+            border-top: 16px solid #3498db;
+            /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            margin: auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Your file is being processed...</h1>
+    <div class="loader"></div>
+    <p>Please wait, this might take a few moments.</p>
+    <script>
+        setTimeout(function () {
+            location.reload();
+        }, 5000); // Reload the page every 5 seconds to check if processing is done
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Your File</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            text-align: center;
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3;
+            /* Light grey */
+            border-top: 16px solid #3498db;
+            /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            margin: auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {% if not table_path %}
+    <h1>Your file is being processed...</h1>
+    <div class="loader"></div>
+    <p>Please wait, this might take a few moments.</p>
+    <script>
+        setTimeout(function () {
+            location.reload();
+        }, 5000); // Reload the page every 5 seconds to check if processing is done
+    </script>
+    {% else %}
+    <h1>Table processed successfully!</h1>
+    <form method="post">
+        <label for="prompt">Enter your prompt:</label><br>
+        <textarea id="prompt" name="prompt" rows="4" cols="50"></textarea><br>
+        <input type="hidden" name="table_path" value="{{ table_path }}">
+        <input type="submit" value="Submit">
+    </form>
+    {% endif %}
+
+    <div id="result">
+        {% if result %}
+        <h2>Result:</h2>
+        <pre>{{ result }}</pre>
+        {% endif %}
+    </div>
+</body>
+
+</html>
