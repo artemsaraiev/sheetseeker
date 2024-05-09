@@ -9,7 +9,7 @@ from data_formatting import get_csv_data
 load_dotenv()
 
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-BASE_MODEL = "openai/gpt-4-turbo"
+BASE_MODEL = "meta-llama/llama-3-70b-instruct:nitro"
 
 
 class Message:

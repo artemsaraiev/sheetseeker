@@ -35,11 +35,11 @@ def create_filtered_meta_excel(input_path, output_path, similarities, threshold 
     # Load the input workbook
     input_workbook = openpyxl.load_workbook(input_path)
 
-
     # add left and up terms of values to the set of cells
     for sheet_name in input_workbook.sheetnames:
         input_sheet = input_workbook[sheet_name]
-        for match in similarities['matches']:
+        for match in similarities:
+            # print(f'{match =}')
             if match['score'] > threshold:
                 row, col, sheet = (int(match['metadata']['row']), 
                                    int(match['metadata']['col']), 
